@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 final class NetworkManager{
     
     // Basic structure for setting up network manager
     
     static let shared = NetworkManager()
+    // URL-Image key value pair cache
+    private let cache = NSCache<NSString, UIImage>()
     
     static let baseURL = "http://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/"
     private let appetizerURL = baseURL + "appetizers"
@@ -53,6 +56,32 @@ final class NetworkManager{
             }
         }
         // To fire of the network call
+        task.resume()
+    }
+
+    func downloadImage(fromURLString: String, completed: @escaping(UIImage?) -> Void){
+        let cacheKey = NSString(string: fromURLString)
+        
+        // Check image in cache, if present the return completion handler with image
+        if let image = cache.object(forKey: cacheKey){
+            completed(image)
+            return
+        }
+        
+        guard let url = URL(string: fromURLString) else {
+            completed(nil)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            // Check if data is not nil, if not then good make a UIImage out of that else return nil
+            guard let data = data, let image = UIImage(data: data) else{
+                completed(nil)
+                return
+            }
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
+        }
         task.resume()
     }
     
