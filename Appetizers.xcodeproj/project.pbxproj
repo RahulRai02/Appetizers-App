@@ -28,6 +28,7 @@
 		B74BD22F2B069321002F8A1D /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74BD22E2B069321002F8A1D /* XDismissButton.swift */; };
 		B7F120812B1F21A5006DDC47 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F120802B1F21A5006DDC47 /* AccountViewModel.swift */; };
 		B7F120832B1F269A006DDC47 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F120822B1F269A006DDC47 /* String+Ext.swift */; };
+		B7F120852B1F9155006DDC47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F120842B1F9155006DDC47 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B74BD22E2B069321002F8A1D /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
 		B7F120802B1F21A5006DDC47 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		B7F120822B1F269A006DDC47 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		B7F120842B1F9155006DDC47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				B72844AB2AF68322003ABC52 /* Appetizer.swift */,
+				B7F120842B1F9155006DDC47 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				B72844B52AF9733B003ABC52 /* AppetizerListViewModel.swift in Sources */,
 				B71D39392AFCE3A700E2EB4A /* Color+Ext.swift in Sources */,
 				B728449A2AF6695B003ABC52 /* AppetizerTabView.swift in Sources */,
+				B7F120852B1F9155006DDC47 /* User.swift in Sources */,
 				B74BD22D2B068F97002F8A1D /* APButton.swift in Sources */,
 				B71D39372AFCE25300E2EB4A /* LoadingView.swift in Sources */,
 				B72844A82AF66A77003ABC52 /* OrderView.swift in Sources */,

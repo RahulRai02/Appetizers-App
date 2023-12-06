@@ -17,18 +17,19 @@ struct AccountView: View {
         NavigationView{
             Form{
                 Section {
-                    TextField("First Name", text: $viewModel.firstName)
-                    TextField("Last Name", text:$viewModel.lastName)
-                    TextField("Email", text: $viewModel.email)
+                    TextField("First Name", text: $viewModel.user.firstName)
+                    TextField("Last Name", text:$viewModel.user.lastName)
+                    TextField("Email", text: $viewModel.user.email)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization( .none)
                         .autocorrectionDisabled(true)
-                    DatePicker("Birthday", 
-                               selection: $viewModel.birthdate,
+                    DatePicker("Birthday",
+                               selection: $viewModel.user.birthdate,
                                displayedComponents: .date)
                     Button{
 //                        print("Save")
                         viewModel.saveChanges()
+                        
                     } label: {
                         Text("Save Changes")
                     }
@@ -38,10 +39,10 @@ struct AccountView: View {
                 }
                 
                 Section{
-                    Toggle(isOn: $viewModel.extraNapkins) {
+                    Toggle(isOn: $viewModel.user.extraNapkins) {
                         Text("Extra Napkins")
                     }
-                    Toggle(isOn: $viewModel.frequentRefills) {
+                    Toggle(isOn: $viewModel.user.frequentRefills) {
                         Text("Frequent Refills")
                     }
                 } header: {
@@ -52,12 +53,13 @@ struct AccountView: View {
             }
             .navigationTitle("Account")
         }
+        .onAppear{
+            viewModel.retriveUser()
+        }
         .alert(item: $viewModel.alertItem){ alertItem in
             Alert(title: alertItem.title,
                   message: alertItem.message,
                   dismissButton: alertItem.dismissButton)
-            
-            
         }
     }
 }

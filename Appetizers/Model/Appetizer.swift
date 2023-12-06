@@ -26,6 +26,8 @@ struct AppetizerResponse: Decodable {
 
 // Mock data for making the UI
 
+// DUMMY
+
 struct MockData {
     static let fries = Appetizer(id: 0001,
                                  name: "French Fries",
@@ -82,4 +84,9 @@ struct MockData {
                                       carbs: 30)
     
     static let appetizers = [fries, burger, onionRings, mozzarellaSticks, chickenWings, bruschetta]
+    
+    // Creating another mock data for order screen
+    static let orderItems = [fries, burger, onionRings]
+    
+    
 }
